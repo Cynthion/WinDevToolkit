@@ -84,6 +84,10 @@
     <Compile Include="BaseCalendar.cs" />
     <Compile Include="BaseNotifyPropertyChanged.cs" />
     <Compile Include="BaseStorage.cs" />
+    <Compile Include="Converter\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Converter\InverseBooleanConverter.cs" />
+    <Compile Include="Converter\ToUpperCaseConverter.cs" />
+    <Compile Include="Converter\VisibilityConverter.cs" />
     <Compile Include="CustomConcurrencyTaskScheduler.cs" />
     <Compile Include="ImageLoader.cs" />
     <Compile Include="IncrementalObservableCollection.cs" />
