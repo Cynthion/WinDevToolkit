@@ -81,6 +81,7 @@
   <ItemGroup>
     <Compile Include="AsyncLoader.cs" />
     <Compile Include="BaseApi.cs" />
+    <Compile Include="BaseCalendar.cs" />
     <Compile Include="BaseNotifyPropertyChanged.cs" />
     <Compile Include="BaseStorage.cs" />
     <Compile Include="CustomConcurrencyTaskScheduler.cs" />
