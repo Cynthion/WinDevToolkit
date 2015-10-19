@@ -114,6 +114,9 @@ namespace WPDevToolkit
             //}
         }
 
-        protected abstract void DoSetHeaders(HttpWebRequest request);
+        protected virtual void DoSetHeaders(HttpWebRequest request)
+        {
+            // no headers set by default
+        }
     }
 }

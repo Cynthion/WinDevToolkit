@@ -89,6 +89,7 @@
     <Compile Include="Converter\ToUpperCaseConverter.cs" />
     <Compile Include="Converter\VisibilityConverter.cs" />
     <Compile Include="CustomConcurrencyTaskScheduler.cs" />
+    <Compile Include="FileHelper.cs" />
     <Compile Include="ImageLoader.cs" />
     <Compile Include="IncrementalObservableCollection.cs" />
     <Compile Include="Interfaces\ILoadAsync.cs" />

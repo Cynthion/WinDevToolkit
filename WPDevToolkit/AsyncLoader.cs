@@ -6,6 +6,8 @@ namespace WPDevToolkit
 {
     public struct LoadResult
     {
+        public static LoadResult Success = new LoadResult(null);
+
         private readonly string _message;
 
         public LoadResult(string message = null) : this()
@@ -21,7 +23,6 @@ namespace WPDevToolkit
 
     public abstract class AsyncLoader : BaseNotifyPropertyChanged, ILoadAsync
     {
-        protected static readonly LoadResult Success = new LoadResult(null);
         private string _statusText;
         private bool _hasStatusText;
         private bool _isLoading;
