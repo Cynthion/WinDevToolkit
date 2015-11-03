@@ -13,7 +13,7 @@ namespace WPDevToolkit.Selection
         { }
 
         public SelectionItem(string key, T value)
-            : this(key, value, value.ToString())
+            : this(key, value, value != null ? value.ToString() : null)
         { }
 
         public SelectionItem(string key, T value, string display)
@@ -40,6 +40,11 @@ namespace WPDevToolkit.Selection
         public override int GetHashCode()
         {
             return Key.GetHashCode();
+        }
+
+        public override string ToString()
+        {
+            return Display ?? Key;
         }
 
         public string Key { get; private set; }

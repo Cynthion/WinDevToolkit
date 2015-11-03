@@ -49,18 +49,18 @@ namespace WPDevToolkit
             if (!_initialized)
             {
                 _appointmentStore = await AppointmentManager.RequestStoreAsync(AppointmentStoreAccessType.AppCalendarsReadWrite);
+                throw new NotImplementedException();
+                //if (BaseSettings.IsFirstRun)
+                //{
+                //    await CheckForAndCreateAppointmentCalendars();
 
-                if (BaseSettings.IsFirstRun)
-                {
-                    await CheckForAndCreateAppointmentCalendars();
-
-                    BaseSettings.IsFirstRun = false;
-                }
-                else
-                {
-                    await CheckForAndCreateAppointmentCalendars();
-                }
-                _initialized = true;
+                //    BaseSettings.IsFirstRun = false;
+                //}
+                //else
+                //{
+                //    await CheckForAndCreateAppointmentCalendars();
+                //}
+                //_initialized = true;
             }
         }
 

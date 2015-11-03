@@ -10,10 +10,11 @@ namespace WPDevToolkit.Converter
             {
                 switch (param)
                 {
-                    case VisibilityParameter.Normal:
-                        return (bool)value ? Visibility.Visible : Visibility.Collapsed;
                     case VisibilityParameter.Inverse:
                         return (bool)value ? Visibility.Collapsed : Visibility.Visible;
+                    case VisibilityParameter.Normal:
+                    default:
+                        return (bool)value ? Visibility.Visible : Visibility.Collapsed;
                 }
             }
             return Visibility.Collapsed;

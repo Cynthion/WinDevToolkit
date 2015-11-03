@@ -14,13 +14,16 @@ namespace WPDevToolkit.Converter
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
-            if (targetType != typeof(Visibility))
+            if (targetType != typeof (Visibility))
+            {
                 throw new InvalidOperationException("The target must be Visibility!");
+            }
 
             var param = VisibilityParameter.Normal;
-            if (parameter is string)
+            var s = parameter as string;
+            if (s != null)
             {
-                param = (VisibilityParameter)Enum.Parse(typeof(VisibilityParameter), (string) parameter);
+                param = (VisibilityParameter)Enum.Parse(typeof(VisibilityParameter), s);
             }
             
             return GetVisibility(value, param);

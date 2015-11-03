@@ -7,7 +7,7 @@ namespace WPDevToolkit.UI
     /// Base class for all template selectors. Unwraps the necessary information such that subclasses
     /// only need to deal with the type T by implementing <see cref="DoSelectTemplate"/>.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="T">The type containing the necessary information for the template selection.</typeparam>
     public abstract class BaseTemplateSelector<T> : DataTemplateSelector where T : class
     {
         protected override DataTemplate SelectTemplateCore(object item, DependencyObject container)

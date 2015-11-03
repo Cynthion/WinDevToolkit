@@ -9,24 +9,33 @@ namespace WPDevToolkit
     public static class ImageLoader
     {
         private static BitmapImage _unknownCover;
-        private static BitmapImage GetUnknowCover()
+        private static BitmapImage GetUnknowImage()
         {
             if (_unknownCover == null)
             {
-                // TODO correct path
-                _unknownCover = new BitmapImage(new Uri("ms-appx:///Assets/Pictures/UnknownCover150.png", UriKind.Absolute));
+                _unknownCover = new BitmapImage(new Uri("ms-appx:///Assets/cardBack.png", UriKind.Absolute));
             }
             return _unknownCover;
         }
 
-        // TODO store images elsewhere, according to type -> now all in ShowCover
-        // TODO only store covers and fanarts
+        public static async Task<ImageSource> LoadImageAsync(string imageUrl)
+        {
+            // check if url is given
+            if (imageUrl == null)
+            {
+                return GetUnknowImage();
+            }
+            // TODO create options needed?
+            ImageSource src = new BitmapImage(new Uri(imageUrl));
+            return src;
+        }
+
         private static async Task<ImageSource> LoadAndStoreImageAsync(string imageUrl)
         {
             // check if url is given
             if (imageUrl == null)
             {
-                return GetUnknowCover();
+                return GetUnknowImage();
             }
 
             var fileName = imageUrl.XxHash();

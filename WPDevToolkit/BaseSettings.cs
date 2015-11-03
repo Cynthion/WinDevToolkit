@@ -6,9 +6,10 @@ namespace WPDevToolkit
     public abstract class BaseSettings
     {
         // settings
-        private const string IsFirstRunKey = "isfirstrun";
-
-        private static void Set<T>(string settingKey, T value)
+        public const string IsFirstRunKey = "isfirstrun";
+        public const string AppVersionKey = "appVersion";
+        
+        public static void Store<T>(string settingKey, T value)
         {
             var settings = GetLocalSettings();
             if (settings.ContainsKey(settingKey) == false)
@@ -21,7 +22,7 @@ namespace WPDevToolkit
             }
         }
 
-        private static T Get<T>(string settingKey)
+        public static T Load<T>(string settingKey)
         {
             var settings = GetLocalSettings();
             if (settings.ContainsKey(settingKey))
@@ -36,10 +37,17 @@ namespace WPDevToolkit
             return ApplicationData.Current.LocalSettings.Values;
         }
 
-        public static bool IsFirstRun
+        public bool IsFirstRun
         {
-            get { return Get<bool>(IsFirstRunKey); }
-            set { Set(IsFirstRunKey, value); }
+            // take inverse, due to bool default being false
+            get { return !Load<bool>(IsFirstRunKey); }
+            set { Store(IsFirstRunKey, !value); }
+        }
+
+        public string AppVersion
+        {
+            get { return Load<string>(AppVersionKey); }
+            set { Store(AppVersionKey, value); }
         }
     }
 }
