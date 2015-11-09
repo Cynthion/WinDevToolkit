@@ -21,7 +21,7 @@ namespace WPDevToolkit
         }
     }
 
-    public abstract class AsyncLoader : BaseNotifyPropertyChanged, ILoadAsync
+    public abstract class AsyncLoader : BaseNotifyPropertyChanged, IAsyncLoader
     {
         private string _statusText;
         private bool _hasStatusText;

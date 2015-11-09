@@ -2,6 +2,10 @@
 
 namespace WPDevToolkit.Selection
 {
+    /// <summary>
+    /// Wraps information about selection.
+    /// </summary>
+    /// <typeparam name="T">The type of the value associated with the selection.</typeparam>
     public class SelectionItem<T> : BaseNotifyPropertyChanged, ISelectionItem<T>, IEquatable<SelectionItem<T>>
     {
         private T _value;

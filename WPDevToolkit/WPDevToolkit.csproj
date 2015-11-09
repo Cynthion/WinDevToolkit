@@ -88,6 +88,7 @@
     <Compile Include="Converter\BooleanToVisibilityConverter.cs" />
     <Compile Include="Converter\InverseBooleanConverter.cs" />
     <Compile Include="Converter\ScreenSizeConverter.cs" />
+    <Compile Include="Converter\SortDirectionToStringConverter.cs" />
     <Compile Include="Converter\ToUpperCaseConverter.cs" />
     <Compile Include="Converter\VisibilityConverter.cs" />
     <Compile Include="CustomConcurrencyTaskScheduler.cs" />
@@ -95,7 +96,7 @@
     <Compile Include="ImageLoader.cs" />
     <Compile Include="IncrementalObservableCollection.cs" />
     <Compile Include="Interfaces\IFromDtoItem.cs" />
-    <Compile Include="Interfaces\ILoadAsync.cs" />
+    <Compile Include="Interfaces\IAsyncLoader.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Interfaces\ILocatable.cs" />
     <Compile Include="Messaging.cs" />
@@ -109,9 +110,10 @@
     <Compile Include="SingletonLocator.cs" />
     <Compile Include="Sorting\GroupInfoList.cs" />
     <Compile Include="Sorting\MultiComparer.cs" />
-    <Compile Include="Sorting\SortDescription.cs" />
     <Compile Include="TaskHelper.cs" />
     <Compile Include="UI\BaseTemplateSelector.cs" />
+    <Compile Include="ViewModel\AsyncLoaderBaseViewModel.cs" />
+    <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="XxHash.cs" />
   </ItemGroup>
   <ItemGroup>

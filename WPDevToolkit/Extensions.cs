@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
-using System.Threading;
 
 namespace WPDevToolkit
 {
@@ -13,8 +12,8 @@ namespace WPDevToolkit
         /// <summary>
         /// Applies a sort on the original <see cref="ObservableCollection{T}"/> itself.
         /// </summary>
-        /// <typeparam name="TSource"></typeparam>
-        /// <typeparam name="TKey"></typeparam>
+        /// <typeparam name="TSource">The type to be sorted on.</typeparam>
+        /// <typeparam name="TKey">The key on which to sort on the type.</typeparam>
         /// <param name="oc"></param>
         /// <param name="keySelector">A function to extract a key from an element.</param>
         /// <param name="comparer">A <see cref="IComparer{T}"/> to compare keys.</param>
@@ -62,6 +61,7 @@ namespace WPDevToolkit
             return hash.Digest().ToString();
         }
 
+        // TODO remove this
         public static T CastToGeneric<T>(this object obj)
         {
             if (obj is T)
