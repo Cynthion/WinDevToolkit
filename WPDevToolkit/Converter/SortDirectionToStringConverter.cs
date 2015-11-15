@@ -12,7 +12,7 @@ namespace WPDevToolkit.Converter
                 throw new InvalidOperationException("The target must be of type string!");
             }
 
-            return (bool)value ? "ASCENDING" : "DESCENDING";
+            return (bool)value ? "Ascending" : "Descending";
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, string language)

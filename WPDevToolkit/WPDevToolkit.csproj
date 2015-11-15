@@ -85,6 +85,7 @@
     <Compile Include="BaseNotifyPropertyChanged.cs" />
     <Compile Include="BaseStorage.cs" />
     <Compile Include="BindingHelper.cs" />
+    <Compile Include="ChangeViewInfoCommand.cs" />
     <Compile Include="Converter\BooleanToVisibilityConverter.cs" />
     <Compile Include="Converter\InverseBooleanConverter.cs" />
     <Compile Include="Converter\ScreenSizeConverter.cs" />
@@ -99,6 +100,8 @@
     <Compile Include="Interfaces\IAsyncLoader.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Interfaces\ILocatable.cs" />
+    <Compile Include="Interfaces\IViewInfoProvider.cs" />
+    <Compile Include="ItemsControlViewInfo.cs" />
     <Compile Include="Messaging.cs" />
     <Compile Include="ObservableRangeCollection.cs" />
     <Compile Include="PhoneInteraction.cs" />

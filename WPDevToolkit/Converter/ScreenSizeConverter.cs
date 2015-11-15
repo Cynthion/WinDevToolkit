@@ -8,7 +8,8 @@ namespace WPDevToolkit.Converter
     public enum ScreenParameter
     {
         Width,
-        Height
+        Height,
+        HalfWidth,
     }
 
     public class ScreenSizeConverter : IValueConverter
@@ -28,6 +29,9 @@ namespace WPDevToolkit.Converter
                         break;
                     case ScreenParameter.Height:
                         size = Window.Current.Bounds.Height * scaleFactor;
+                        break;
+                    case ScreenParameter.HalfWidth:
+                        size = (Window.Current.Bounds.Width * scaleFactor) / 2;
                         break;
                 }
                 return size;

@@ -8,6 +8,19 @@ namespace WPDevToolkit
 {
     public static class ImageLoader
     {
+        /// <summary>
+        /// Loads an image from the local assets folder.
+        /// </summary>
+        /// <param name="relativePath">E.g., "/Assets/Icons/image.png"</param>
+        /// <returns></returns>
+        public static BitmapImage LoadFromAssets(string relativePath)
+        {
+            // image loading for Windows Runtime
+            // see https://msdn.microsoft.com/en-us/library/hh763341.aspx
+            var absolutePath = string.Format("ms-appx://{0}", relativePath);
+            return new BitmapImage(new Uri(absolutePath, UriKind.Absolute));
+        }
+
         private static BitmapImage _unknownCover;
         private static BitmapImage GetUnknowImage()
         {
