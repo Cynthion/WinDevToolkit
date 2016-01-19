@@ -5,9 +5,9 @@ using System.Runtime.ExceptionServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WPDevToolkit
+namespace WPDevToolkit.Services
 {
-    public abstract class BaseApi
+    public abstract class ApiBase
     {
         protected async Task<string> ApiGetRequestAsync(string url, string accessToken = null)
         {
@@ -71,7 +71,7 @@ namespace WPDevToolkit
                     SetHeaders(request, accessToken);
 
                     // bytes
-                    byte[] byteArray = Encoding.UTF8.GetBytes(postJson);
+                    var byteArray = Encoding.UTF8.GetBytes(postJson);
 
                     using (var writer = await request.GetRequestStreamAsync())
                     {

@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Windows.Storage.Streams;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
+using WPDevToolkit.Services;
 
 namespace WPDevToolkit
 {
@@ -62,7 +63,7 @@ namespace WPDevToolkit
 
             // else, load from web
             var rasr = RandomAccessStreamReference.CreateFromUri(new Uri(imageUrl));
-            var wrtBitmap = await BaseStorage.LoadWritableBitmapFromRasr(rasr);
+            var wrtBitmap = await StorageBase.LoadWritableBitmapFromRasr(rasr);
             return wrtBitmap;
 
             // store

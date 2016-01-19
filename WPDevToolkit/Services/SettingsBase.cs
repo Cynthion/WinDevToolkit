@@ -1,9 +1,9 @@
 ﻿using Windows.Foundation.Collections;
 using Windows.Storage;
 
-namespace WPDevToolkit
+namespace WPDevToolkit.Services
 {
-    public abstract class BaseSettings
+    public abstract class SettingsBase
     {
         // settings
         public const string IsFirstRunKey = "isfirstrun";

@@ -79,13 +79,33 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Common\ContinuationManager.cs" />
+    <Compile Include="Common\NavigationHelper.cs" />
+    <Compile Include="Common\ObservableDictionary.cs" />
+    <Compile Include="Common\RelayCommand.cs" />
+    <Compile Include="Common\SuspensionManager.cs" />
+    <Compile Include="Controls\MultiComboBox.cs" />
+    <Compile Include="Controls\RangeBox.xaml.cs">
+      <DependentUpon>RangeBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="IocContainer.cs" />
+    <Compile Include="PurchaseItem.cs" />
+    <Compile Include="ReleaseNotes.cs" />
+    <Compile Include="Services\IConstantsService.cs" />
+    <Compile Include="Services\IStorageService.cs" />
+    <Compile Include="UI\BasePage.cs" />
+    <Compile Include="Controls\Icon.xaml.cs">
+      <DependentUpon>Icon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\AboutViewModel.cs" />
     <Compile Include="AsyncLoader.cs" />
-    <Compile Include="BaseApi.cs" />
+    <Compile Include="Services\ApiBase.cs" />
     <Compile Include="BaseCalendar.cs" />
     <Compile Include="BaseNotifyPropertyChanged.cs" />
-    <Compile Include="BaseStorage.cs" />
+    <Compile Include="Services\StorageBase.cs" />
     <Compile Include="BindingHelper.cs" />
     <Compile Include="ChangeViewInfoCommand.cs" />
+    <Compile Include="Services\ConstantsBase.cs" />
     <Compile Include="Converter\BooleanToVisibilityConverter.cs" />
     <Compile Include="Converter\InverseBooleanConverter.cs" />
     <Compile Include="Converter\ScreenSizeConverter.cs" />
@@ -93,9 +113,11 @@
     <Compile Include="Converter\ToUpperCaseConverter.cs" />
     <Compile Include="Converter\VisibilityConverter.cs" />
     <Compile Include="CustomConcurrencyTaskScheduler.cs" />
+    <Compile Include="DescriptionAttribute.cs" />
     <Compile Include="FileHelper.cs" />
     <Compile Include="ImageLoader.cs" />
     <Compile Include="IncrementalObservableCollection.cs" />
+    <Compile Include="Services\InitializerBase.cs" />
     <Compile Include="Interfaces\IFromDtoItem.cs" />
     <Compile Include="Interfaces\IAsyncLoader.cs" />
     <Compile Include="Extensions.cs" />
@@ -106,7 +128,7 @@
     <Compile Include="ObservableRangeCollection.cs" />
     <Compile Include="PhoneInteraction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="BaseSettings.cs" />
+    <Compile Include="Services\SettingsBase.cs" />
     <Compile Include="Selection\ISelectionItem.cs" />
     <Compile Include="Selection\SelectionItem.cs" />
     <Compile Include="Selection\SelectionLoader.cs" />
@@ -117,15 +139,81 @@
     <Compile Include="UI\BaseTemplateSelector.cs" />
     <Compile Include="ViewModel\AsyncLoaderBaseViewModel.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="ViewModel\IAboutViewModel.cs" />
+    <Compile Include="ViewModel\ViewModelLocator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\AboutPage.xaml.cs">
+      <DependentUpon>AboutPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DonationPage.xaml.cs">
+      <DependentUpon>DonationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MultiComboBoxPage.xaml.cs">
+      <DependentUpon>MultiComboBoxPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ReleaseNotesPage.xaml.cs">
+      <DependentUpon>ReleaseNotesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowsStoreManager.cs" />
     <Compile Include="XxHash.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Ninject">
+      <HintPath>..\packages\Ninject.2.0.1.0\lib\Ninject.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="StoreSimulation\WindowsStoreProxy.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Controls\Icon.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\RangeBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Defaults.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Resources\IconResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Resources\Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\AboutPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\DonationPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MultiComboBoxPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ReleaseNotesPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Common\ReadMe.txt" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>

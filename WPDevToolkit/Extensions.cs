@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Reflection;
 using System.Text;
+using Windows.System;
+using Windows.UI.Xaml.Controls;
 
 namespace WPDevToolkit
 {
@@ -60,6 +63,44 @@ namespace WPDevToolkit
             hash.Update(input, input.Count());
             return hash.Digest().ToString();
         }
+
+        public static void ActionOnEnter(this TextBox tb, Action action = null)
+        {
+            tb.KeyDown += (s, a) =>
+            {
+                if (a.Key == VirtualKey.Enter)
+                {
+                    if (action != null)
+                    {
+                        action();
+                    }
+
+                    // hide soft keyboard
+                    tb.IsEnabled = false;
+                    tb.IsEnabled = true;
+                }
+            };
+        }
+
+        public static string GetEnumDescription(this Enum enumValue)
+        {
+            // inspired by http://www.minddriven.de/index.php/technology/dot-net/net-winrt-get-custom-attributes-from-enum-value
+            var customAttributes = enumValue
+                .GetType()
+                .GetTypeInfo()
+                .GetDeclaredField(enumValue.ToString())
+                .CustomAttributes.ToList();
+            try
+            {
+                // hacky, but only way this works on WinRT atm
+                return customAttributes[0].ConstructorArguments[0].Value.ToString();
+            }
+            catch (Exception ex)
+            {
+                return enumValue.ToString();
+            }
+        }
+
 
         // TODO remove this
         public static T CastToGeneric<T>(this object obj)

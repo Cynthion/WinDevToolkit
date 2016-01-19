@@ -4,6 +4,7 @@ using Windows.UI.Xaml.Data;
 
 namespace WPDevToolkit
 {
+    // workaround for applying bindings in style definitions (has side-effects!)
     // inspired by http://stackoverflow.com/questions/26345820/binding-selecteditems-in-listview-to-a-viewmodel-in-windows-phone-8-1
 
     public class BindingHelper
@@ -18,7 +19,6 @@ namespace WPDevToolkit
             obj.SetValue(IsSelectedContainerBindingProperty, value);
         }
 
-        // Using a DependencyProperty as the backing store for IsSelectedContainerBinding.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty IsSelectedContainerBindingProperty =
             DependencyProperty.RegisterAttached("IsSelectedContainerBinding", typeof(string), typeof(BindingHelper), new PropertyMetadata(null, IsSelectedContainerBindingPropertyChangedCallback));
 

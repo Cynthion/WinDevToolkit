@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
@@ -8,11 +9,17 @@ using Windows.Storage.Streams;
 using Windows.UI.Xaml.Media.Imaging;
 using Newtonsoft.Json;
 
-namespace WPDevToolkit
+namespace WPDevToolkit.Services
 {
     // TODO implement ClearLocalAll (Q42 as example)
-    public abstract class BaseStorage
+    public abstract class StorageBase : IStorageService
     {
+        // folders
+        private const string PurchasesFolderName = "purchases";
+
+        // files
+        private const string PurchasesFileName = "purchases";
+
         #region Folder Accessors
 
         protected static StorageFolder GetRootFolder()
@@ -209,6 +216,20 @@ namespace WPDevToolkit
                 }
             }
             return wrtBitmap;
+        }
+
+        #endregion
+
+        #region Purchases
+
+        public async Task StorePurchasesAsync(IList<PurchaseItem> purchaseItems)
+        {
+            await SaveAsync(purchaseItems, await GetFolderAsync(PurchasesFolderName), PurchasesFileName);
+        }
+
+        public async Task<IList<PurchaseItem>> LoadPurchasesAsync()
+        {
+            return await LoadAsync<IList<PurchaseItem>>(await GetFolderAsync(PurchasesFolderName), PurchasesFileName) ?? new List<PurchaseItem>();
         }
 
         #endregion
