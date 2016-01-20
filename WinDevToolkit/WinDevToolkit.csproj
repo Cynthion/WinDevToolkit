@@ -158,20 +158,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Resources\Defaults.xaml">
+    <EmbeddedResource Include="Resources\Defaults.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Page>
-    <Page Include="Resources\IconResources.xaml">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\IconResources.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Page>
-    <Page Include="Resources\Styles.xaml">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Styles.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
+    </EmbeddedResource>
     <Page Include="Views\MultiComboBoxPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

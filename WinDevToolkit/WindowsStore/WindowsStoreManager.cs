@@ -16,7 +16,7 @@ namespace WinDevToolkit.WindowsStore
 #if DEBUG
             LicenseInformation = CurrentAppSimulator.LicenseInformation;
 #else
-            _licenseInformation = CurrentApp.LicenseInformation; 
+            LicenseInformation = CurrentApp.LicenseInformation; 
 #endif
             LicenseInformation.LicenseChanged += LicenseInformation_OnLicenseChanged;   
         }
